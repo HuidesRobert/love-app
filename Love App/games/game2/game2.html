@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Garden — Game2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background canvases stacked for effects -->
+  <canvas id="wave-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;"></canvas>
+  <canvas id="twinkles-canvas" class="bg-canvas twinkles-canvas"></canvas>
+  <canvas id="particles-canvas" class="bg-canvas particles-canvas"></canvas>
+
+  <div class="app-wrap">
+    <div class="garden-card">
+      <div class="garden-view">
+        <div class="title-row">
+          <h1>Love Garden</h1>
+          <div class="counters">
+            <div class="counter" id="seeds-counter">Seeds: 0</div>
+            <div class="counter" id="fert-counter">Fertilizer: 0</div>
+            <div class="counter" id="lp-counter">LP: 0</div>
+          </div>
+        </div>
+
+        <div class="garden-area" role="application" aria-label="Love garden">
+          <div class="soil">
+            <div class="plot-grid" id="plot-grid" aria-live="polite"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="shop-side" aria-hidden="false">
+        <div class="shop-header">Shop</div>
+        <div class="shop-preview">Upgrades &amp; Items</div>
+        <div class="shop-shortcuts">
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Bottom UI buttons -->
+  <button id="back-btn" class="corner-btn back" aria-label="Back">◀ Back</button>
+  <button id="open-shop-btn" class="corner-btn shop" aria-label="Open shop">🛒</button>
+
+  <!-- Shop panel (slides in) -->
+  <div id="shop-container" class="shop-panel hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="shop-inner">
+      <h2>Garden Shop</h2>
+      <div id="shop-items" class="shop-items" ></div>
+      <button id="close-shop" class="close-shop glow-btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+  const shopToggleButton = document.getElementById('shop-toggle-button');
+  const shopPanel = document.getElementById('shop-panel');
+
+  shopToggleButton.addEventListener('click', () => {
+    shopPanel.classList.toggle('open');
+  });
+</script>
+
+  <script src="script.js" defer></script>
+  <script src="shop.js" defer></script>
+</body>
+</html>

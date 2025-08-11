@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(145deg, #0a0f2c, #1f2947);
+  color: #00d9ff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  gap: 20px;
+}
+
+.title {
+  font-size: 3.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 15px rgba(0, 217, 255, 0.8);
+  user-select: text;
+  margin: 0;
+}
+
+#card {
+  width: 100%;
+  min-height: 320px;
+  background: linear-gradient(145deg, #22305d, #1a2342);
+  box-shadow:
+    inset 0 0 15px rgba(0, 140, 255, 0.7),
+    0 5px 25px rgba(0, 90, 255, 0.9);
+  border-radius: 20px;
+  padding: 40px 35px;
+  color: #00d9ff;
+  text-shadow: 0 0 6px #00d9ff;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  user-select: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+
+  /* Shuffle animation */
+  transition: transform 0.8s cubic-bezier(0.5, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.card-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  user-select: text;
+  text-shadow: 0 0 20px #00d9ff;
+}
+
+.card-text {
+  flex-grow: 1;
+  white-space: pre-wrap;
+  font-weight: 400;
+  user-select: text;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  font-family: 'Great Vibes', cursive !important;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05));
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  color: rgba(0, 217, 255, 0.85);
+  font-size: 2.2rem;
+  padding: 16px 45px;
+  border-radius: 24px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  box-shadow: none;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: rgba(0, 217, 255, 0.12);
+  box-shadow:
+    0 0 18px rgba(0, 217, 255, 0.7),
+    0 0 30px rgba(0, 217, 255, 0.5);
+}
+
+.back-btn {
+  margin-top: 10px;
+  font-size: 2rem;
+  width: 50%;
+  user-select: none;
+  text-align: center;
+}
+
+/* Glow wave and particles from effects.js */
+
+.glow-wave-container {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: waveMove 8s ease-in-out infinite;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.particles-container, .twinkles-container {
+  position: fixed;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.5);
+  animation: floatParticles linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.twinkle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 500px;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  #card {
+    min-height: 250px;
+    font-size: 1.4rem;
+    padding: 25px 20px;
+  }
+
+  .card-title {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 12px 30px;
+  }
+
+  .back-btn {
+    font-size: 1.5rem;
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 350px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  #card {
+    min-height: 200px;
+    font-size: 1.1rem;
+    padding: 20px 18px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1.3rem;
+    padding: 10px 24px;
+  }
+
+  .back-btn {
+    font-size: 1.3rem;
+    width: 90%;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px; /* increase this value as needed */
+}
+
+.particles-container,
+.twinkles-container,
+.glow-wave-container {
+  position: fixed;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.5);
+  animation: floatParticles linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.twinkle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.glow-wave {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: waveMove 8s ease-in-out infinite;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}

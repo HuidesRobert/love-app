@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+html, body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(145deg, #0a0f2c, #1f2947);
+  overflow: hidden;
+  font-family: 'Great Vibes', cursive;
+  color: #00d9ff;
+  user-select: none;
+  position: relative;
+
+  /* Center content vertically + horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Full screen particles container */
+#particles-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Particles style */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.5);
+  animation: floatParticles linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  width: 6px;
+  height: 6px;
+}
+
+.particle.bright {
+  background: rgba(0, 217, 255, 0.45);
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.9);
+}
+
+/* Animation */
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Container holds everything, centered and vertical layout */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  text-shadow:
+    0 0 10px rgba(0, 217, 255, 0.7),
+    0 0 20px rgba(0, 217, 255, 0.5);
+  color: #00d9ff;
+  margin: 0;
+}
+
+/* Hearts container */
+.hearts {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Heart emojis style */
+.heart {
+  font-size: 6rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 12px #00d9ff);
+}
+
+.heart:hover,
+.heart.active {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 24px #00d9ff);
+}
+
+/* Message text */
+.message {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow:
+    0 0 8px rgba(0, 217, 255, 0.9),
+    0 0 16px rgba(0, 217, 255, 0.7);
+  user-select: text;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .hearts {
+    gap: 30px;
+  }
+
+  .heart {
+    font-size: 4.5rem;
+  }
+
+  .message {
+    font-size: 2rem;
+  }
+
+  .container {
+    gap: 30px;
+  }
+}
+
+.shared-glow-wave {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: waveMove 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.shared-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 200, 255, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150vh);
+  }
+}
+
+.shared-twinkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}

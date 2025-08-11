@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surprise 5 - Fireworks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="particles-container"></div>
+  <canvas id="fireworks-canvas"></canvas>
+
+  <div class="container">
+    <button class="open-button" id="fireworks-button">Celebrate!</button>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!document.querySelector(".shared-glow-wave")) {
+      // Glow Waves
+      const wave1 = document.createElement("div");
+      wave1.className = "shared-glow-wave";
+      wave1.style.top = "30%";
+      wave1.style.left = "25%";
+      document.body.appendChild(wave1);
+
+      const wave2 = document.createElement("div");
+      wave2.className = "shared-glow-wave";
+      wave2.style.top = "70%";
+      wave2.style.left = "75%";
+      document.body.appendChild(wave2);
+
+      // Floating Particles
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement("div");
+        p.className = "shared-particle";
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.animationDuration = `${10 + Math.random() * 10}s`;
+        document.body.appendChild(p);
+      }
+
+      // Twinkling Stars
+      for (let i = 0; i < 60; i++) {
+        const star = document.createElement("div");
+        star.className = "shared-twinkle";
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        document.body.appendChild(star);
+      }
+    }
+  });
+</script>
+
+  <script src="particles.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

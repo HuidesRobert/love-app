@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Love Clicker — Game1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background canvases (waves / twinkles / particles) -->
+  <canvas id="wave-canvas" class="bg-canvas"></canvas>
+  <canvas id="twinkles-canvas" class="bg-canvas"></canvas>
+  <canvas id="particles-canvas" class="bg-canvas"></canvas>
+
+  <div class="app-wrap">
+    <div class="clicker-card">
+      <header class="header">
+        <h1>Love Clicker</h1>
+        <div class="counters">
+          <div class="counter" id="lp-counter">LP: 0</div>
+          <div class="counter small" id="multiplier-label">x1</div>
+        </div>
+      </header>
+
+      <main class="main-area">
+        <div class="click-area" id="click-area" aria-label="Tap heart to earn points">
+          <div id="heart" class="heart">💙</div>
+          <div id="lp-burst" class="lp-burst" aria-hidden="true"></div>
+        </div>
+
+        <div class="upgrades-row">
+          <button id="open-shop-btn" class="glow-btn">Shop</button>
+          <button id="back-btn" class="corner-btn small back">◀ Back</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Shop panel -->
+  <div id="shop-container" class="shop-panel hidden" aria-hidden="true" role="dialog">
+    <div class="shop-inner">
+      <h2>Shop</h2>
+      <div id="shop-items" class="shop-items"></div>
+      <button id="close-shop" class="close-shop glow-btn">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="shop.js" defer></script>
+  <script src="lovepoints.js" defer></script>
+
+
+    <script>
+    document.getElementById('back-btn').addEventListener('click', () => {
+      // Go to the surprise category page
+      window.location.href = "../game-category.html";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose a Game</title>
+  <link rel="stylesheet" href="games.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 90%;
+    }
+
+    .btn {
+      font-family: 'Great Vibes', cursive !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #3ec0ff, #70eaff);
+      box-shadow: 0 0 12px #70eaff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1 class="title">Choose a<br>Game</h1>
+
+  <div class="menu">
+    <button class="btn" onclick="location.href='./game1/game1.html'">Love Clicker</button>
+    <button class="btn" onclick="location.href='./game2/game2.html'">Love Garden</button>
+    <a href="../category.html" class="btn back-btn">← Back to Categories</a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Glow Waves
+    const wave1 = document.createElement("div");
+    wave1.className = "glow-wave";
+    wave1.style.top = "20%";
+    wave1.style.left = "30%";
+    document.body.appendChild(wave1);
+
+    const wave2 = document.createElement("div");
+    wave2.className = "glow-wave";
+    wave2.style.top = "75%";
+    wave2.style.left = "65%";
+    document.body.appendChild(wave2);
+
+    const wave3 = document.createElement("div");
+    wave3.className = "glow-wave";
+    wave3.style.top = "50%";
+    wave3.style.left = "10%";
+    document.body.appendChild(wave3);
+
+    // Particles
+    for (let i = 0; i < 35; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.style.top = `${Math.random() * 100}%`;
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.animationDuration = `${8 + Math.random() * 12}s`;
+      document.body.appendChild(p);
+    }
+
+    // Twinkle Stars
+    for (let i = 0; i < 70; i++) {
+      const star = document.createElement("div");
+      star.className = "twinkle";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      document.body.appendChild(star);
+    }
+
+    // Optional Floating Shapes
+    for (let i = 0; i < 15; i++) {
+      const shape = document.createElement("div");
+      shape.className = "float-shape";
+      shape.style.top = `${Math.random() * 100}%`;
+      shape.style.left = `${Math.random() * 100}%`;
+      shape.style.animationDuration = `${10 + Math.random() * 10}s`;
+      document.body.appendChild(shape);
+    }
+  });
+</script>
+
+</body>
+</html>

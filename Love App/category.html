@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose a Moment</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- PWA / iOS head snippet (put on category.html) -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#00d9ff">
+
+<!-- iOS: run in standalone mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Love Garden">
+<link rel="apple-touch-icon" href="/img/logo.jpg">
+
+<meta name="apple-touch-startup-image" href="/splashscreens/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
+<meta name="apple-touch-startup-image" href="/splashscreens/launch-750x1334.png" media="(device-width: 375px) and (device-height: 667px)">
+<meta name="apple-touch-startup-image" href="/splashscreens/launch-1242x2208.png" media="(device-width: 414px) and (device-height: 736px)">
+<!-- Add more splash screens if you want -->
+
+  <style>
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 90%;
+    }
+
+    .btn {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 153, 255, 0.3), rgba(0, 76, 255, 0.3));
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 140, 255, 0.4), 0 0 20px rgba(0, 140, 255, 0.3) inset;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, rgba(0, 140, 255, 0.6), rgba(0, 255, 255, 0.6));
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.8), 0 0 30px rgba(0, 140, 255, 0.6) inset;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1 class="title">Choose a<br>Moment</h1>
+    <img src="img/heart.png" alt="Heart" class="heart-glow" />
+    <div class="menu">
+<a href="#" class="btn locked" data-category="letters">Letters</a>
+<a href="#" class="btn locked" data-category="notes">Notes</a>
+<a href="#" class="btn locked" data-category="surprises">Surprises</a>
+<a href="./games/game-category.html" class="btn" data-category="games">Games</a>
+    </div>
+  </div>
+
+   <div id="lp-display" aria-label="Love Points" role="status" aria-live="polite" style="position:fixed; top:20px; right:20px; 
+background: rgba(10,15,44,0.6); color:#00d9ff; font-family:'Great Vibes', cursive; font-size:1.3rem; padding:10px 20px; border-radius:30px; box-shadow:0 0 10px rgba(0,217,255,0.8), inset 0 0 8px rgba(0,217,255,0.4); user-select:none; white-space:nowrap; z-index:10000; cursor:default;">
+  LP: <span id="lp-count">0</span>
+</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Glow Waves
+      const wave1 = document.createElement("div");
+      wave1.className = "glow-wave";
+      wave1.style.top = "30%";
+      wave1.style.left = "25%";
+      document.body.appendChild(wave1);
+
+      const wave2 = document.createElement("div");
+      wave2.className = "glow-wave";
+      wave2.style.top = "70%";
+      wave2.style.left = "75%";
+      document.body.appendChild(wave2);
+
+      // Floating Particles
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.top = `${Math.random() * 100 + 50}%`;
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.animationDuration = `${10 + Math.random() * 10}s`;
+        document.body.appendChild(p);
+      }
+
+      // Twinkling Stars
+      for (let i = 0; i < 60; i++) {
+        const star = document.createElement("div");
+        star.className = "twinkle";
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        document.body.appendChild(star);
+      }
+    });
+  </script>
+
+  <script src="storage.js"></script>
+  <script src="lock.js"></script>
+  <script src="/sw-register.js"></script>
+</body>
+</html>

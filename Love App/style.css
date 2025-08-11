@@ -1,0 +1,151 @@
+/* Background & Body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(135deg, #050d1a, #0e1f3f);
+  color: #ffffff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Title */
+.title {
+  font-size: 3.5rem;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Heart Image */
+.heart-glow {
+  width: 240px; /* Increased size */
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 18px rgba(117, 234, 255, 0.5));
+  margin-bottom: 36px;
+  z-index: 1;
+}
+
+/* Buttons */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+    .btn {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 153, 255, 0.3), rgba(0, 76, 255, 0.3));
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 140, 255, 0.4), 0 0 20px rgba(0, 140, 255, 0.3) inset;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, rgba(0, 140, 255, 0.6), rgba(0, 255, 255, 0.6));
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.8), 0 0 30px rgba(0, 140, 255, 0.6) inset;
+      transform: scale(1.05);
+    }
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Glow Waves */
+.glow-wave {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: waveMove 8s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Floating Particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 200, 255, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150vh);
+  }
+}
+
+/* Twinkling Stars */
+.twinkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 12px 28px;
+  }
+
+  .heart-glow {
+    width: 80px;
+  }
+
+  .menu {
+    gap: 16px;
+  }
+}

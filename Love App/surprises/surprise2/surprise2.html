@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="love letter.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Love letter</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="valentines">
+        <div class="envelope"></div>
+        <div class="front"></div>
+        <div class="card">
+          <div class="text">Te<br/>Iubesc<br/>Iubita!</div>
+          <div class="heart"></div>
+        </div>
+        <div class="hearts">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+          <div class="four"></div>
+          <div class="five"></div>
+        </div>
+      </div>
+
+      <div class="shadow"></div>
+
+      <!-- Button below envelope and shadow -->
+      <button class="open-button">Open Love Letter</button>
+    </div>
+
+    <script>
+      const particleCount = 40;
+      for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 4;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = (Math.random() * 100) + 'vw';
+        p.style.top = (100 + Math.random() * 100) + 'vh';
+        p.style.animationDuration = (6 + Math.random() * 8) + 's';
+        document.body.appendChild(p);
+      }
+    </script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!document.querySelector(".shared-glow-wave")) {
+      // Glow Waves
+      const wave1 = document.createElement("div");
+      wave1.className = "shared-glow-wave";
+      wave1.style.top = "30%";
+      wave1.style.left = "25%";
+      document.body.appendChild(wave1);
+
+      const wave2 = document.createElement("div");
+      wave2.className = "shared-glow-wave";
+      wave2.style.top = "70%";
+      wave2.style.left = "75%";
+      document.body.appendChild(wave2);
+
+      // Floating Particles
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement("div");
+        p.className = "shared-particle";
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.animationDuration = `${10 + Math.random() * 10}s`;
+        document.body.appendChild(p);
+      }
+
+      // Twinkling Stars
+      for (let i = 0; i < 60; i++) {
+        const star = document.createElement("div");
+        star.className = "shared-twinkle";
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        document.body.appendChild(star);
+      }
+    }
+  });
+</script>
+    <script src="love letter.js"></script>
+  </body>
+</html>

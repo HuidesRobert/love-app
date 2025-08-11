@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose a Surprise</title>
+  <link rel="stylesheet" href="surprise-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="content">
+  <h1 class="title">Choose a<br>Surprise</h1>
+
+  <!-- CARD CONTAINER -->
+<div class="card-container" id="cardContainer">
+  <div class="card" onclick="location.href='surprise1/surprise1.html'">Surprise 1</div>
+  <div class="card" onclick="location.href='surprise2/surprise2.html'">Surprise 2</div>
+  <div class="card" onclick="location.href='surprise3/surprise3.html'">Surprise 3</div>
+  <div class="card" onclick="location.href='surprise4/surprise4.html'">Surprise 4</div>
+  <div class="card" onclick="location.href='surprise5/surprise5.html'">Surprise 5</div>
+</div>
+
+<!-- ARROW BUTTONS BELOW -->
+<div class="arrow-row">
+  <div class="arrow below" onclick="scrollCards(-1)">❮</div>
+  <div class="arrow below" onclick="scrollCards(1)">❯</div>
+</div>
+
+  <div class="back-container">
+    <a href="../category.html" class="btn back-btn">← Back to Categories</a>
+  </div>
+</div>
+
+<!-- BACKGROUND EFFECTS -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const wave1 = document.createElement("div");
+    wave1.className = "glow-wave";
+    wave1.style.top = "20%";
+    wave1.style.left = "30%";
+    document.body.appendChild(wave1);
+
+    const wave2 = document.createElement("div");
+    wave2.className = "glow-wave";
+    wave2.style.top = "70%";
+    wave2.style.left = "70%";
+    document.body.appendChild(wave2);
+
+    const wave3 = document.createElement("div");
+    wave3.className = "glow-wave";
+    wave3.style.top = "50%";
+    wave3.style.left = "10%";
+    document.body.appendChild(wave3);
+
+    for (let i = 0; i < 35; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.style.top = `${Math.random() * 100}%`;
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.animationDuration = `${8 + Math.random() * 12}s`;
+      document.body.appendChild(p);
+    }
+
+    for (let i = 0; i < 70; i++) {
+      const star = document.createElement("div");
+      star.className = "twinkle";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      document.body.appendChild(star);
+    }
+  });
+
+  function scrollCards(direction) {
+    const container = document.getElementById("cardContainer");
+    const scrollAmount = container.offsetWidth * 0.6;
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth"
+    });
+  }
+</script>
+
+</body>
+</html>

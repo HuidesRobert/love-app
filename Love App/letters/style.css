@@ -1,0 +1,127 @@
+:root {
+  --bg1: #0a0f2c;
+  --bg2: #1f2947;
+  --accent: rgba(0, 217, 255, 1);
+  --accent-glow: rgba(0, 217, 255, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(145deg, var(--bg1), var(--bg2));
+  color: white;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  color: var(--accent);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.letters-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.letter-card {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.8rem;
+  color: white;
+  background: linear-gradient(145deg, var(--accent), #7a5fff);
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--accent-glow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.letter-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--accent);
+}
+
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  background: linear-gradient(145deg, var(--accent), #7a5fff);
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 15px var(--accent-glow);
+  transition: box-shadow 0.3s, transform 0.3s;
+  z-index: 2;
+}
+
+.back-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px var(--accent);
+}
+
+/* Mobile responsiveness */
+@media (min-width: 600px) {
+  .letters-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Particle background styles */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(20px) scale(0.5);
+        opacity: 0;
+    }
+}

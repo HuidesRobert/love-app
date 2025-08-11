@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(145deg, #0a0f2c, #1f2947);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Great Vibes', cursive;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  max-width: 90vw;
+  height: 400px;
+  max-height: 90vh;
+  z-index: 2;
+}
+
+canvas#constellation {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  background: transparent;
+  position: relative;
+  user-select: none;
+}
+
+/* Glowing floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.5);
+  animation: floatParticles linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brighter particles variant */
+.particle.bright {
+  background: rgba(0, 217, 255, 0.45);
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.9);
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Back / Show button style */
+.open-button {
+  margin-top: 40px;
+  padding: 12px 28px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #00d9ff;
+  background: linear-gradient(145deg, #1f29477c, #222d4e71);
+  border: 2px solid #00d9ff;
+  border-radius: 14px;
+  box-shadow:
+    0 0 12px #00d9ff,
+    0 0 24px #00d9ff,
+    0 0 40px #00d9ff;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  position: relative;
+  z-index: 10;
+  user-select: none;
+  transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.open-button:hover {
+  color: #1f2947;
+  background: linear-gradient(145deg, #00d9ff, #00aaff);
+  border-color: #00aaff;
+  box-shadow:
+    0 0 20px #00aaff,
+    0 0 40px #00aaff,
+    0 0 60px #00aaff;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px #00d9ff,
+      0 0 24px #00d9ff,
+      0 0 40px #00d9ff;
+  }
+  50% {
+    box-shadow:
+      0 0 20px #00aaff,
+      0 0 40px #00aaff,
+      0 0 60px #00aaff;
+  }
+}
+
+.shared-glow-wave {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: waveMove 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.shared-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 200, 255, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150vh);
+  }
+}
+
+.shared-twinkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
